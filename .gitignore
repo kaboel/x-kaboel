@@ -3,7 +3,7 @@
 .vscode
 
 # configurations
-_config/config.js
+src/_config/config.js
 
 
 # dependencies

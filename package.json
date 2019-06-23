@@ -1,0 +1,9 @@
+{
+  "name": "x-kaboel",
+  "version": "1.0.0",
+  "description": "Server side API for v-kaboel",
+  "main": "app.js",
+  "repository": "https://github.com/kaboel/x-kaboel.git",
+  "author": "faiq.kaboel@gmail.com",
+  "license": "MIT"
+}

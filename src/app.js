@@ -3,7 +3,6 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
-const db = require('./_core/config').db;
 
 const App = express();
 
@@ -13,7 +12,9 @@ App.use(bodyParser.urlencoded({ extended: true }));
 
 require('./routes')(App);
 
+const db = require('./_core/config').db;
 mongoose.connect(db.uriString, { useNewUrlParser: true });
+
 const conn = mongoose.connection;
 conn.once('open', () => {
     console.log('Database Connected...');

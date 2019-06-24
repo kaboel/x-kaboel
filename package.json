@@ -1,9 +1,22 @@
 {
   "name": "x-kaboel",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Server side API for v-kaboel",
-  "main": "app.js",
-  "repository": "https://github.com/kaboel/x-kaboel.git",
   "author": "faiq.kaboel@gmail.com",
-  "license": "MIT"
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "./node_modules/nodemon/bin/nodemon.js src/app.js --exec 'npm run lint && node'",
+    "lint": "./node_modules/.bin/eslint src/*.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.6.0",
+    "morgan": "^1.9.1"
+  },
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "nodemon": "^1.19.1"
+  }
 }

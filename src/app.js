@@ -2,6 +2,8 @@ const config = require('./_core/config');
 const express = require('express');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
+const mongoose = require('mongoose');
+const db = require('./_core/config').db;
 
 const App = express();
 
@@ -11,11 +13,21 @@ App.use(bodyParser.urlencoded({ extended: true }));
 
 require('./routes')(App);
 
-try {
-    const port = process.env.PORT || config.port;
-    App.listen(port, () => {
-        console.log(`Express server started on port: ${port}...`);
-    })
-} catch (err) {
-    console.log('An error has occurred - Server fail to start.');
-}
+mongoose.connect(db.uriString, { useNewUrlParser: true });
+const conn = mongoose.connection;
+conn.once('open', () => {
+    console.log('Database Connected...');
+    try {
+        const port = process.env.PORT || config.port;
+        App.listen(port, () => {
+            console.log(`Express server started on port: ${port}...`);
+        })
+    } catch (err) {
+        console.log(`ERROR: Server failed to start - ${err.message}`);
+    }
+});
+conn.on('error', (err) => {
+    console.log(`Database connection error - ${err}`);
+});
+
+

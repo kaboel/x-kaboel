@@ -1,9 +1,7 @@
 module.exports = {
     name: 'x-kaboel',
-    port: '6217',
+    port: '8089',
     db: {
-        user: '',
-        password: '',
-        host: '',
-    }
+        uriString: ''// Your database connection uriString
+    }                // e.g `mongodb+srv://<user>:<pass>@<host>/<dbName>?retryWrites=true&w=majority`
 }

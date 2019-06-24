@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-
 const SCHEMA = mongoose.Schema({
     name: {
         type: String,
@@ -17,7 +16,10 @@ const SCHEMA = mongoose.Schema({
         type: Number,
         required: true
     },
-})
+    details: {
+        type: String
+    }
+});
 const MODEL = mongoose.model('Plan', SCHEMA, 'Plans');
 
 module.exports = MODEL;

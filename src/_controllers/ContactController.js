@@ -5,7 +5,7 @@ module.exports = {
         try {
             await Contact.find({}, (err, data) => {
 
-                (data === null) ? res.json(data) : res.send({ message: `No contact found.` })
+                (data !== null) ? res.json(data) : res.send({ message: `No contact found.` })
 
             })
         } catch (err) {

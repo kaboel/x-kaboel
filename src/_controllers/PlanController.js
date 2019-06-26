@@ -5,7 +5,7 @@ module.exports = {
         try {
             await Plan.find({}, (err, data) => {
 
-                (data === null) ? res.json(data) : res.send({ message: `No plans found.` })
+                (data !== null) ? res.json(data) : res.send({ message: `No plans found.` })
 
             })
         } catch (err) {

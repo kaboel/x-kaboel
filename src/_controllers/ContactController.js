@@ -4,7 +4,9 @@ module.exports = {
     async index(req, res) {
         try {
             await Contact.find({}, (err, data) => {
-                res.json(data);
+
+                (data === null) ? res.json(data) : res.send({ message: `No contact found.` })
+
             })
         } catch (err) {
             res.status(500).send({
@@ -13,7 +15,7 @@ module.exports = {
         }
     },
 
-    async create(req, res) {
+    async store(req, res) {
         try {
             const contact = new Contact(req.body);
             await contact.save();

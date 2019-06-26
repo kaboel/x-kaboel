@@ -8,3 +8,6 @@ src/_core/config.js
 
 # dependencies
 node_modules
+
+# Procfile
+Procfile

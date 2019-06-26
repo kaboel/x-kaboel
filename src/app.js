@@ -1,11 +1,13 @@
 const config = require('./_core/config');
 const express = require('express');
+const cors = require('cors');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
 
 const App = express();
 
+App.use(cors());
 App.use(morgan('combined'));
 App.use(bodyParser.json());
 App.use(bodyParser.urlencoded({ extended: true }));

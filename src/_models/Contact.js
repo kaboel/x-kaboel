@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+
 const SCHEMA = mongoose.Schema({
     name: {
         type: String,

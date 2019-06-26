@@ -1,26 +1,21 @@
 const mongoose = require('mongoose');
 
 const SCHEMA = mongoose.Schema({
-    name: {
+    title: {
         type: String,
         required: true
     },
-    email: {
+    description: {
         type: String,
         required: true
     },
-    projectType: {
-        type: String,
-        required: true
+    imageUrl: {
+        type: String
     },
-    budget: {
-        type: Number,
-        required: true
-    },
-    details: {
+    targetUrl: {
         type: String
     }
 });
-const MODEL = mongoose.model('Plan', SCHEMA, 'Plans');
+const MODEL = mongoose.model('Project', SCHEMA, 'Projects');
 
 module.exports = MODEL;
